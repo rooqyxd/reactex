@@ -1,7 +1,7 @@
 import { useState } from "react";
 import commonColumnsStyles from "../../../common/styles/Columns.module.scss";
 import PropTypes from "prop-types";
-function ShopingList({ shopingList, onShopingList, onShopingListWithId }) {
+function ShopingList({ shopingList, onShopingList }) {
     const [markedProducts, setMarkedProducts] = useState([]);
     const handleRemoveProduct = (e, index) => {
         e.preventDefault();

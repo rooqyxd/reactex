@@ -43,11 +43,7 @@ function App() {
                     filteredProducts={filteredProducts}
                     onShopingListWithId={shopingListWithId}
                 />
-                <ShopingList
-                    shopingList={shopingList}
-                    onShopingListWithId={shopingListWithId}
-                    onShopingList={setShopingList}
-                />
+                <ShopingList shopingList={shopingList} onShopingList={setShopingList} />
             </div>
         </div>
     );
