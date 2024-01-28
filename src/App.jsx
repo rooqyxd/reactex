@@ -13,7 +13,6 @@ function App() {
         ...new Set(produkty.map((product) => product.kategoria)),
     ]);
 
-    console.log(`newc w APP ${newCategories}`);
     return (
         <div className={styles.appWrapper}>
             <AddProducts

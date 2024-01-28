@@ -15,7 +15,6 @@ function AddProducts({ products, onProducts, newCategories, onNewCategories }) {
             onNewCategories([...newCategories, newProductCategory]);
         }
         onProducts([...products, newProduct]);
-        console.log(`newc w addproduct ${newCategories}`);
     };
 
     return (
