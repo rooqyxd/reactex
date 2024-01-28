@@ -1,6 +1,6 @@
 import styles from "../../../common/styles/Headers.module.scss";
 import { useState, useEffect } from "react";
-function ProductsFilters({ products, onFilteredProducts }) {
+function ProductsFilters({ products, newCategories, onFilteredProducts }) {
     const [searchProduct, setSearchProduct] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [isFood, setIsFood] = useState(false);
@@ -59,7 +59,7 @@ function ProductsFilters({ products, onFilteredProducts }) {
             filteredProducts = filteredProducts.filter((item) => item.produktSpozywczy === true);
         }
         onFilteredProducts(filteredProducts);
-    }, [searchProduct, selectedCategory, isFood, products, onFilteredProducts]); 
+    }, [searchProduct, selectedCategory, isFood, products, onFilteredProducts]);
     return (
         <>
             <div className={styles.Wrapper}>
@@ -68,11 +68,16 @@ function ProductsFilters({ products, onFilteredProducts }) {
                     <input type="text" value={searchProduct} onChange={handleSearch} />
                     <select name="" id="" onChange={handleSetCategory}>
                         <option value="default">----</option>
-                        <option value="nabiał">nabiał</option>
+                        {newCategories.map((el, index) => (
+                            <option key={index} value={el}>
+                                {el}
+                            </option>
+                        ))}
+                        {/* <option value="nabiał">nabiał</option>
                         <option value="warzywa">warzywa</option>
                         <option value="narzędzia">narzędzia</option>
                         <option value="nasiona">nasiona</option>
-                        <option value="inne">inne</option>
+                        <option value="inne">inne</option> */}
                     </select>
                     <label>
                         <input type="checkbox" checked={isFood} onChange={handleSearchFoodOnly} />

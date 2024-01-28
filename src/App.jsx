@@ -9,10 +9,24 @@ function App() {
     const [shopingList, setShopingList] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([...produkty]);
     const [products, setProducts] = useState([...produkty]);
+    const [newCategories, setNewCategories] = useState([
+        ...new Set(produkty.map((product) => product.kategoria)),
+    ]);
+
+    console.log(`newc w APP ${newCategories}`);
     return (
         <div className={styles.appWrapper}>
-            <AddProducts />
-            <ProductsFilters products={products} onFilteredProducts={setFilteredProducts} />
+            <AddProducts
+                products={products}
+                newCategories={newCategories}
+                onNewCategories={setNewCategories}
+                onProducts={setProducts}
+            />
+            <ProductsFilters
+                products={products}
+                newCategories={newCategories}
+                onFilteredProducts={setFilteredProducts}
+            />
             <div className={styles.columnsWrapper}>
                 <ProductsList
                     shopingList={shopingList}
