@@ -25,9 +25,17 @@ function AddProducts({ products, onProducts, newCategories, onNewCategories }) {
             Add products
             <form onSubmit={handleSubmit}>
                 <label>nazwa</label>
-                <input type="text" onChange={(e) => setNewProductName(e.target.value)} />
+                <input
+                    type="text"
+                    value={newProductName}
+                    onChange={(e) => setNewProductName(e.target.value)}
+                />
                 <label>kategoria</label>
-                <input type="text" onChange={(e) => setNewProductCategory(e.target.value)} />
+                <input
+                    type="text"
+                    value={newProductCategory}
+                    onChange={(e) => setNewProductCategory(e.target.value)}
+                />
                 <label>produkt spozywczy?</label>
                 <input
                     type="checkbox"

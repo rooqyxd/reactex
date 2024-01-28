@@ -9,11 +9,8 @@ function ProductsList({ onShopingList, shopingList, filteredProducts }) {
                 <p>Products list</p>
 
                 <ul>
-                    {filteredProducts.map((el) => (
-                        <li
-                            key={el.nazwa}
-                            onClick={() => onShopingList([...shopingList, el.nazwa])}
-                        >
+                    {filteredProducts.map((el, index) => (
+                        <li key={index} onClick={() => onShopingList([...shopingList, el.nazwa])}>
                             {el.nazwa}
                         </li>
                     ))}
