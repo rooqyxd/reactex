@@ -8,11 +8,11 @@ import produkty from "./common/consts/produkty";
 function App() {
     const [shopingList, setShopingList] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([...produkty]);
-
+    const [products, setProducts] = useState([...produkty]);
     return (
         <div className={styles.appWrapper}>
             <AddProducts />
-            <ProductsFilters produkty={produkty} onFilteredProducts={setFilteredProducts} />
+            <ProductsFilters products={products} onFilteredProducts={setFilteredProducts} />
             <div className={styles.columnsWrapper}>
                 <ProductsList
                     shopingList={shopingList}
