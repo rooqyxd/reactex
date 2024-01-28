@@ -15,6 +15,7 @@ function AddProducts({ products, onProducts, newCategories, onNewCategories }) {
             onNewCategories([...newCategories, newProductCategory]);
         }
         onProducts([...products, newProduct]);
+
         setNewProductName("");
         setNewProductCategory("");
         setIsFoodProduct(false);
