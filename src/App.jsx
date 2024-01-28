@@ -12,7 +12,19 @@ function App() {
     const [newCategories, setNewCategories] = useState([
         ...new Set(produkty.map((product) => product.kategoria)),
     ]);
+    const shopingListWithId = (selectedProduct) => {
+        const ID = new Date();
+        const customID = ID.getTime();
 
+        const shopProduct = {
+            nazwa: selectedProduct.nazwa,
+            kategoria: selectedProduct.kategoria,
+            produktSpozywczy: selectedProduct.produktSpozywczy,
+            id: customID,
+        };
+        console.log(shopProduct);
+        setShopingList((prevList) => [...prevList, shopProduct]);
+    };
     return (
         <div className={styles.appWrapper}>
             <AddProducts
@@ -28,11 +40,14 @@ function App() {
             />
             <div className={styles.columnsWrapper}>
                 <ProductsList
-                    shopingList={shopingList}
                     filteredProducts={filteredProducts}
+                    onShopingListWithId={shopingListWithId}
+                />
+                <ShopingList
+                    shopingList={shopingList}
+                    onShopingListWithId={shopingListWithId}
                     onShopingList={setShopingList}
                 />
-                <ShopingList shopingList={shopingList} onShopingList={setShopingList} />
             </div>
         </div>
     );

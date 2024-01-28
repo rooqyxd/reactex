@@ -2,7 +2,7 @@ import commonColumnsStyles from "../../../common/styles/Columns.module.scss";
 
 import PropTypes from "prop-types";
 
-function ProductsList({ onShopingList, shopingList, filteredProducts }) {
+function ProductsList({ filteredProducts, onShopingListWithId }) {
     return (
         <div className={commonColumnsStyles.App}>
             <header className={commonColumnsStyles.AppHeader}>
@@ -10,7 +10,7 @@ function ProductsList({ onShopingList, shopingList, filteredProducts }) {
 
                 <ul>
                     {filteredProducts.map((el, index) => (
-                        <li key={index} onClick={() => onShopingList([...shopingList, el.nazwa])}>
+                        <li key={index} onClick={() => onShopingListWithId(el)}>
                             {el.nazwa}
                         </li>
                     ))}
